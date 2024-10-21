@@ -1,0 +1,86 @@
+body{
+    
+
+
+    background:
+    linear-gradient(rgba(98, 255, 161, 0.495),
+    rgba(98, 255, 161, 0.495),
+    rgba(98, 255, 161, 0.495)),
+      url("../images/indexBackground.svg");
+  background-repeat: no-repeat;
+  height: 99vh;
+  margin-left: 5%;
+  background-position: center;
+  background-size: cover;
+ background-attachment: local;
+ overflow: scroll;
+ 
+}
+
+.formcontainer{
+
+    display:flex;
+    justify-content: space-evenly;
+    height: 80%;
+    align-items: center;
+    flex-flow: column;
+    background-color: rgba(101, 219, 129,0.595);
+
+    padding: 0 70px;
+    border-radius: 50px;
+    margin-top: 5%;
+    color: rgb(93, 93, 93);
+    
+}
+.centered{
+    text-align: center;
+}
+.plant-selection-field{
+width: 250px;
+display: flex;
+padding:10px;
+outline: none;
+border:none;
+border-radius: 50px;
+text-align: center;
+background-color: rgb(228, 228, 228);
+}
+.submitBtn{
+width: 200px;
+height: 50px;
+text-align: center;
+border-radius: 50px;
+border:none;
+background-color: rgb(173, 255, 131);
+
+}
+.submitBtn:disabled{
+    background-color: gray;
+}
+.sideDeco{
+    background-image: url("../images/plantSec.jpg");
+    
+    width:40%;
+    background-repeat: no-repeat;
+
+    background-position: center;
+    background-size: contain;
+   background-attachment: local;
+   overflow: scroll;
+  
+}
+.container{
+    display: flex;
+    flex-flow: row;
+    height: 100%;
+    width: 90%;
+    justify-content: center;
+}
+.leftline{
+    border-left: 1px solid white;
+}
+.value{
+    border: 1px solid white;
+    padding:10px;
+    border-radius: 20px;
+}

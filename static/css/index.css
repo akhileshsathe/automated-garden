@@ -1,0 +1,75 @@
+body{
+    
+
+
+    background:
+    linear-gradient(rgba(98, 255, 161, 0.495),
+    rgba(98, 255, 161, 0.495),
+    rgba(98, 255, 161, 0.495)),
+      url("../images/indexBackground.svg");
+  background-repeat: no-repeat;
+  height: 99vh;
+  margin-left: 5%;
+  background-position: center;
+  background-size: cover;
+ background-attachment: local;
+ overflow: scroll;
+ 
+}
+
+
+
+.submitBtn{
+width: 200px;
+height: 50px;
+text-align: center;
+border-radius: 50px;
+border:none;
+color: rgb(255, 255, 255);
+background-color: rgb(48, 196, 115);
+
+}
+.sideDeco{
+    background-image: url("../images/gardenIndex2.svg");
+    height: 300px;
+    width: 300px;
+    /* width: 100%; */
+    position: absolute;
+    left:57%;
+    top:20%;
+    background-repeat: no-repeat;
+
+    background-position: center;
+    background-size:contain ;
+   background-attachment: scroll;
+   overflow: fixed;
+   z-index: 1;
+   border-radius: 100%;
+   padding: 10px;
+   border:15px solid #b3b3b3;
+  
+}
+.indexContainer{
+    display: flex;
+    height: 80%;
+    flex-flow: column;
+    width: 45%;
+    margin:auto 10%;
+    justify-content: center;
+
+}
+.content{
+text-align: justify;
+color:green;    
+
+}
+ul{
+color:green;    
+
+}
+h1,h2{
+color:rgb(0, 167, 0);
+text-align: left;
+
+
+}

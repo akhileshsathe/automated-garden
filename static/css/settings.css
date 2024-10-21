@@ -1,0 +1,52 @@
+body{
+    
+
+
+    background:
+    linear-gradient(rgba(98, 255, 161, 0.495),
+    rgba(98, 255, 161, 0.495),
+    rgba(98, 255, 161, 0.495)),
+      url("../images/indexBackground.svg");
+  background-repeat: no-repeat;
+  height: 99vh;
+  /* margin-left: 5%; */
+  background-position: center;
+  background-size: cover;
+  background-attachment: scroll;
+  overflow: scroll;
+  
+  }
+.formcontainer{
+
+    display:flex;
+    justify-content: space-evenly;
+    /* height: 80%; */
+    align-items: flex-start;
+    flex-flow: column;
+    background-color: rgba(101, 219, 129,0.595);
+
+    padding: 20px 70px;
+    border-radius: 50px;
+    margin-top: 5%;
+    color: white;
+    
+}
+.container{
+  display: flex;
+  flex-flow: row;
+
+  justify-content: center;
+}
+    .settings-button{
+      
+      height: 50px;
+      /* align-items: center; */
+ min-width: 200px;
+      text-align: center;
+      border-radius: 20px;
+      border:none;
+      color: rgb(255, 255, 255);
+      background-color: rgb(48, 196, 115); 
+      cursor: pointer;
+      margin:2px;
+    }
