@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/wateringMethod.css' %}">
+<div class="container">
+  
+<form method="post">
+  <div class="formcontainer">
+    <h1>Select a Watering Method</h1>
+    <h3>There are two watering methods:</h3>
+    {{ form.as_div }}
+  <ol>
+    <li>
+Optimal Method: 
+<ul>
+  <li> The plants are watered at the dusk before the sun rises</li>
+  <li>This amount of water is releaseed according different factors</li>
+  <li>Factors such as type,growth phase and water requirements of the plants</li>
+
+</ul>
+</li>
+<li>
+  Regular Method: 
+  <ul>
+    <li> The plants are watered on a regular bases</li>
+    <li>This method ensures that the soil is never dry</li>
+    <li>Once the soil is detected to be dry</li>
+    <li>water is released</li>
+  
+  </ul>
+  </li>
+</ol>
+  {% csrf_token %}
+  {% if created %}
+  <button class="submitBtn" title="save" type="submit" >
+  Save
+  </button>
+  {% else %}
+  <button class="submitBtn" title="save" type="submit" >
+  Next &raquo;&raquo;
+  </button>
+  {% endif %}
+</div>
+
+</form>
+</div>
+{% endblock %}

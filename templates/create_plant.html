@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+<!-- <link rel="stylesheet" href="/static/css/styles.css"> -->
+<div class="container">
+
+<!-- <div class="sideDeco"></div> -->
+<form method="post">
+  {% csrf_token %}
+  <div class="formcontainer">
+      <h1 class="centered">Plant Selector</h1>
+    
+    {{ form.as_div }}
+    
+
+  
+
+
+  {% if created %}
+  <button class="submitBtn" title="save" type="submit" >
+  Save
+  </button>
+  {% else %}
+  <button class="submitBtn" title="save" type="submit" >
+  Next &raquo;&raquo;
+  </button>
+  {% endif %}
+    </div>
+    
+  </form>
+</div>
+{% endblock %}

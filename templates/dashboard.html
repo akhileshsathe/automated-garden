@@ -1,0 +1,173 @@
+{% extends 'base.html' %}
+<!-- {% load static %}
+
+<img id="soilmoisture" src="{% url 'soilgraph' %}" alt="soilmoisture">
+<img id="soilmoisture" src="{% url 'temperaturegraph' %}" alt="temp">
+<img id="soilmoisture" src="{% url 'humiditygraph' %}" alt="humidity">
+
+
+<img id="waterlevel" src="{% url 'waterlevel' %}" alt="waterlevel">  -->
+
+
+
+
+
+
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}">
+<script src="{% static 'js/plotly-latest.min.js' %}"></script>
+<script>
+  function togglePump() {
+    console.log("Here")
+  // Make an AJAX request to the toggle_pump_state view
+  fetch('/switchPump/', {
+    method: 'POST',
+    headers: {
+      'X-CSRFToken': '{{ csrf_token }}',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      // Handle the response and update the toggle switch UI
+      const isOn = data.is_on;
+      const toggleSwitch = document.getElementById('pump');
+
+      if (isOn) {
+        toggleSwitch.classList.add('on');
+        toggleSwitch.innerHTML="Bypass"
+      } else {
+        toggleSwitch.classList.remove('on');
+        toggleSwitch.innerHTML="Auto"
+      }
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+}
+
+
+function toggleLight() {
+    console.log("Here")
+  // Make an AJAX request to the toggle_pump_state view
+  fetch('/switchLight/', {
+    method: 'POST',
+    headers: {
+      'X-CSRFToken': '{{ csrf_token }}',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      // Handle the response and update the toggle switch UI
+      const isOn = data.is_on;
+      const toggleSwitch = document.getElementById('light');
+
+      if (isOn) {
+        toggleSwitch.classList.add('on');
+        toggleSwitch.innerHTML="On"
+      } else {
+        toggleSwitch.classList.remove('on');
+        toggleSwitch.innerHTML="Off"
+      }
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+}
+</script>
+
+<div class="nav" onclick="" class="settings-button">
+  
+  <!-- <a href="{% url 'settings' %}" class="settings-button">Settings</a> -->
+  
+</div>
+<div class="dashboard-container">
+  <div class="grpahs">
+    <div class="graphImg">
+      <!-- <img class="graph-image" src="{% url 'soilgraph' %}" alt="Soil Moisture Graph"> -->
+      <!-- <img class="graph-image" src="{% url 'temperaturegraph' %}" alt="Temperature Graph"> -->
+      {{ soilMoisture|safe }}
+  
+      {{ temperature|safe }}
+      
+    </div>
+    <div class="graphImg">
+      <!-- <img class="graph-image" src="{% url 'humiditygraph' %}" alt="Humidity Graph"> -->
+      {{ humidity|safe }}
+  
+      {{ waterlevel|safe }}
+      <!-- <img id="waterlevel" class="graph-image" src="{% url 'waterlevel' %}" alt="Water Level Chart"> -->
+    </div>
+  </div>
+
+  <div class="buttons">
+    Controls:
+    <div class="btngrp">Pump State:
+    <div id="pump" class=" toggle-switch {% if pump_state.is_on %}on{% endif %}" onclick="togglePump()">
+
+      {% if pump_state.is_on %}
+      Bypass
+      {% else %}
+      Auto
+      {% endif %}
+    </div>
+  </div>
+  <div class="btngrp">Light State:
+    <div id="light" class=" toggle-switch {% if light_state.is_on %}on{% endif %}" onclick="toggleLight()">
+  
+      {% if light_state.is_on %}
+      on
+      {% else %}
+      off
+      {% endif %}
+    </div>
+    </div> 
+    Level Notifications:
+    <div class="btngrp">Water Level:
+      <div id="light" class=" toggle-switch {% if watervalue %}on{% endif %}">
+    
+        {% if watervalue %}
+        Low
+        {% else %}
+        Adequate
+        {% endif %}
+      </div>
+      </div>
+
+      <div class="btngrp">Current Temperature:
+        <div id="light" class=" toggle-switch ">
+      
+        {{tempValue}}
+        </div>
+        </div>
+
+        <div class="btngrp">Current Humidity:
+          <div id="light" class=" toggle-switch ">
+        
+          {{humValue}}%
+          </div>
+          </div>
+          <div class="btngrp">Current Soil Moisture:
+            <div id="light" class=" toggle-switch ">
+          
+            {{soilMValue}}
+            </div>
+            </div>
+    {% csrf_token %}
+    <button class="settings-button" onclick="window.location.href = '/settings/';">
+ 
+
+        Settings
+      </button>
+
+  </div>
+  
+  
+</div>
+
+
+
+
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/settings.css' %}">
+
+
+<div class="container">
+
+<div class="formcontainer">
+    <button class="settings-button" onclick="history.back();">Back</button>
+
+    <button class="settings-button" onclick="location.href='/create';">Change Plant details</button>
+    <button class="settings-button" onclick="location.href='/tankDepth';">Reset the tank depth</button>
+    <button class="settings-button" onclick="location.href='/wateringMethod';">Change the watering method</button>
+    
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Automated Garden{% endblock %}</title>
+    <!-- Add your CSS link here if you have any -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header style="display: flex;
+    justify-content: center;">
+        <!-- Add your logo here -->
+
+
+        <div class="centered" style="padding: 2px;
+         background-color: rgb(97, 215, 149);
+         width: 200px;
+         border-radius: 50px;
+         ">
+                     <span style="font-family: 'Courier New', Courier, monospace;
+                     font-weight: bolder; 
+                     background-color: rgb(97, 215, 149);
+                     border-radius: 50px;
+                     color: rgb(0, 0, 0);
+                     margin: 50% auto;
+                     ">
+         Automated
+            <img src="{% static 'images/icon.png' %}" alt="Logo" style="width: 30px">
+
+             Garden
+        </span>
+        </div>
+
+        <!-- Add navigation links here -->
+        <nav>
+            <!-- <ul>
+
+            </ul> -->
+        </nav>
+    </header>
+
+    <main>
+        <!-- Add the content for your specific pages here -->
+        {% block content %}
+        {% endblock %}
+    </main>
+
+
+
+    <!-- Add your JavaScript files here if needed -->
+    <!-- <script src="{% static 'js/script.js' %}"></script> -->
+</body>
+</html>

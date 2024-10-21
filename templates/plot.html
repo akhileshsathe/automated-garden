@@ -1,0 +1,17 @@
+<!-- index.html -->
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Water Level Chart</title>
+    <script src="{% static 'js/plotly-latest.min.js' %}"></script>
+
+</head>
+<body>
+    <div>
+        <!-- Display the Water Level Chart -->
+        {{ plot_div|safe }}
+    </div>
+</body>
+</html>

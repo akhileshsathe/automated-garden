@@ -1,0 +1,41 @@
+{% load static %}
+
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+<div class="indexContainer">
+  <h1>Welcome to the Automated Garden</h1>
+
+  <div class="content">Create your dream garden effortlessly with our cutting-edge automated gardening system. Enjoy the
+    beauty of nature and the convenience of technology all in one place.
+
+    <h2>Revolutionize Your Gardening Experience</h2>
+
+    Imagine a garden that takes care of itself - watering plants, adjusting lighting, and maintaining optimal conditions
+    for growth. Our automated garden system does all that and more.
+    <br>
+    With our smart sensors and intuitive controls, you can:
+
+    <ul>
+      <li>Monitor and adjust water levels to ensure plants stay hydrated</li>
+      <li>Control lighting schedules for optimal growth and flowering</li>
+      <li>Receive notifications and insights on plant health and environmental conditions</li>
+    </ul>
+  </div>
+  <h2>Start Growing Today</h2>
+  <div class="content">Ready to embark on your gardening journey?<br> Click below to get started with our easy setup wizard
+    and create your own automated garden oasis.
+  </div>
+
+
+  <p></p>
+  <div class="sideDeco"></div>
+  
+    {% csrf_token %}
+    <button type="submit" class="submitBtn"
+  onclick="window.location.href = '/create/';">
+    
+    Get Started &raquo&raquo
+      
+    </button>
+
+</div>

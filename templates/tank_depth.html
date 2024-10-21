@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/tankDepth.css' %}">
+
+
+<div class="container">
+    <div class="formcontainer">
+<h1>Water Tank Depth Setup</h1>
+<p >In order to get accurate water level
+We need to measure the full depth of the tank</p>
+
+<ol class="leftline">
+
+    <li>Empty the tank</li>
+    <li>Set the sensor at the top of the sensor</li>
+    <li>Press reset to reload the depth value of the container</li>
+    <li>Press confirm once the depth value looks correct</li>
+    <li>Press next to store the value</li>
+    <li>Then proceed to fill the tank</li>
+    
+</ol>
+
+    <h3 class="value">Current Value: {{ value }}cm</h3>
+
+    <form method="post" action="{% url 'depth' %}">
+        {% csrf_token %}
+        <input type="submit" name="confirm" value="Confirm" class="submitBtn">
+        <input type="submit" name="reset" value="Reset" class="submitBtn">
+        {% if not confirmed %}
+        <input type="submit" name="save" value="Next &raquo&raquo" disabled class="submitBtn">
+    {% else %}
+        {% if created %}
+        <button class="submitBtn" name="save" title="save" type="submit" >
+        Save
+        </button>
+        {% else %}
+        <button class="submitBtn" name="save" title="save" type="submit" >
+        Next &raquo;&raquo;
+        </button>
+        {% endif %}
+    {% endif %}     
+    </form>
+</div>
+</div>
+
+
+{% endblock %}
